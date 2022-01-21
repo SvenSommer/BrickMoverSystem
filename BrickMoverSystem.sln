@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrickMoverSystem", "BrickMoverSystem\BrickMoverSystem.csproj", "{76F80A08-92DD-44FF-A9D6-C35E842CD7D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrickMoverSystem.Model", "BrickMoverSystem.Model\BrickMoverSystem.Model.csproj", "{3152BE74-4BC8-45DF-B222-D3BF6023D33D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrickMoverSystem.MySqlRepository", "BrickMoverSystem.Repository\BrickMoverSystem.MySqlRepository.csproj", "{DA90AA35-9B3A-416D-BF84-B7F4C88BB919}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrickMoverSystem.AppService", "BrickMoverSystem.AppService\BrickMoverSystem.AppService.csproj", "{CBA96D0A-0514-4B70-BC7B-550F25C0F7FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{15CD4855-35DE-48E4-BF2F-150A77049752}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{48D01F75-8B71-467E-9849-271EE8F16D8A}"
+	ProjectSection(SolutionItems) = preProject
+		BrickMoverSystem-architecture.png = BrickMoverSystem-architecture.png
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrickMoverSystem.Model.Tests", "BrickMoverSystem.Model.Tests\BrickMoverSystem.Model.Tests.csproj", "{D6B07BC6-B6BB-4879-8723-027E1310D3FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrickMoverSystem.PredictionService", "BrickMoverSystem.PredictionRepository\BrickMoverSystem.PredictionService.csproj", "{F0768591-0C91-4B56-BD2E-AD23C7CD25CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrickMoverSystem.PredictionService.Tests", "BrickMoverSystem.PredictionService.Tests\BrickMoverSystem.PredictionService.Tests.csproj", "{8B6432A0-2B1F-4CAF-B125-3D0DD4F3A2D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrickMoverSystem.BucketService", "BrickMoverSystem.BucketService\BrickMoverSystem.BucketService.csproj", "{7C58C130-74AE-4C6A-8CD7-B4DE949A42B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrickMoverSystem.BucketService.Tests", "BrickMoverSystem.BucketService.Tests\BrickMoverSystem.BucketService.Tests.csproj", "{142F5BF8-633D-45DF-BFC8-A0BADDA286DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76F80A08-92DD-44FF-A9D6-C35E842CD7D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76F80A08-92DD-44FF-A9D6-C35E842CD7D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76F80A08-92DD-44FF-A9D6-C35E842CD7D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76F80A08-92DD-44FF-A9D6-C35E842CD7D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3152BE74-4BC8-45DF-B222-D3BF6023D33D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3152BE74-4BC8-45DF-B222-D3BF6023D33D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3152BE74-4BC8-45DF-B222-D3BF6023D33D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3152BE74-4BC8-45DF-B222-D3BF6023D33D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA90AA35-9B3A-416D-BF84-B7F4C88BB919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA90AA35-9B3A-416D-BF84-B7F4C88BB919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA90AA35-9B3A-416D-BF84-B7F4C88BB919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA90AA35-9B3A-416D-BF84-B7F4C88BB919}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBA96D0A-0514-4B70-BC7B-550F25C0F7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBA96D0A-0514-4B70-BC7B-550F25C0F7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBA96D0A-0514-4B70-BC7B-550F25C0F7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBA96D0A-0514-4B70-BC7B-550F25C0F7FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B07BC6-B6BB-4879-8723-027E1310D3FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B07BC6-B6BB-4879-8723-027E1310D3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B07BC6-B6BB-4879-8723-027E1310D3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B07BC6-B6BB-4879-8723-027E1310D3FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0768591-0C91-4B56-BD2E-AD23C7CD25CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0768591-0C91-4B56-BD2E-AD23C7CD25CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0768591-0C91-4B56-BD2E-AD23C7CD25CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0768591-0C91-4B56-BD2E-AD23C7CD25CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B6432A0-2B1F-4CAF-B125-3D0DD4F3A2D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B6432A0-2B1F-4CAF-B125-3D0DD4F3A2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B6432A0-2B1F-4CAF-B125-3D0DD4F3A2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B6432A0-2B1F-4CAF-B125-3D0DD4F3A2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C58C130-74AE-4C6A-8CD7-B4DE949A42B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C58C130-74AE-4C6A-8CD7-B4DE949A42B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C58C130-74AE-4C6A-8CD7-B4DE949A42B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C58C130-74AE-4C6A-8CD7-B4DE949A42B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{142F5BF8-633D-45DF-BFC8-A0BADDA286DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{142F5BF8-633D-45DF-BFC8-A0BADDA286DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142F5BF8-633D-45DF-BFC8-A0BADDA286DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{142F5BF8-633D-45DF-BFC8-A0BADDA286DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{48D01F75-8B71-467E-9849-271EE8F16D8A} = {15CD4855-35DE-48E4-BF2F-150A77049752}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1C17E2A-499E-45FD-B72C-D22101B6701F}
+	EndGlobalSection
+EndGlobal
