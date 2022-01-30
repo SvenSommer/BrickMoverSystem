@@ -3,10 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using BrickMoverSystem.Model.Contract;
-using BrickMoverSystem.Repository;
 
-namespace BrickMoverSystem
+namespace BrickHandler
 {
     public class Startup
     {

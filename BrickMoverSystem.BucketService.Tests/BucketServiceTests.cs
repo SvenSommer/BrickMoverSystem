@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace BrickMoverSystem.BucketService.Tests
+namespace BrickHandler.BucketService.Tests
 {
     public class BucketServiceTests
     {

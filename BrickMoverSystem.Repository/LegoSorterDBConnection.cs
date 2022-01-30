@@ -1,7 +1,7 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
 
-namespace BrickMoverSystem.Repository
+namespace BrickHandler.MySqlRepository
 {
     public class LegoSorterDbConnection
     {

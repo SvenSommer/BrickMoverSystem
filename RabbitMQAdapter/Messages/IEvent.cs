@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RabbitMQAdapter.Messages
+﻿namespace BrickHandler.Messages.Messages
 {
     public interface IEvent : IMessage
     {

@@ -1,16 +1,16 @@
 ﻿using System;
-using BrickMoverSystem.Model;
-using BrickMoverSystem.Model.Contract;
+using BrickHandler.Model;
+using BrickHandler.Model.Contract;
 
-namespace BrickMoverSystem.BucketService
+namespace BrickHandler.BucketService
 {
     public class BucketService : IBucketService
     {
         public IBucket GetBucketForBrick(IBrick brick)
         {
             //TODO: Request the bucket the brick needs to pushed
-            string partno = brick.Prediction.PartNo;
-            int colorId = brick.Prediction.ColorId;
+            string partno = brick.Prediction.Part.No;
+            int colorId = brick.Prediction.Color.Id;
             throw new NotImplementedException();
         }
 

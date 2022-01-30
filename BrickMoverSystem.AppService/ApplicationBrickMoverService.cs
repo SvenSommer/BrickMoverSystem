@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using BrickMoverSystem.Model;
+using BrickHandler.Model;
 
-namespace BrickMoverSystem.AppService
+namespace BrickHandler.AppService
 {
     public class ApplicationBrickMoverService
     {

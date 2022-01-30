@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using BrickMoverSystem.Model;
-using BrickMoverSystem.Model.Contract;
+using BrickHandler.Model;
+using BrickHandler.Model.Contract;
 using Xunit;
 
-namespace BrickMoverSystem.PredictionService.Tests
+namespace BrickHandler.PredictionService.Tests
 {
     public class PredictionServiceTests
     {
@@ -19,7 +19,7 @@ namespace BrickMoverSystem.PredictionService.Tests
         {
             IEnumerable<IImage> images = GetTestImages(0);
 
-            bool predictionPossible = _predictionService.IsPredictionPossible(images);
+            bool predictionPossible = _predictionService.IsPredictionAboveMinConfidences(images);
 
             Assert.False(predictionPossible);
         }
@@ -29,7 +29,7 @@ namespace BrickMoverSystem.PredictionService.Tests
         {
             IEnumerable<IImage> images = GetTestImages(6);
 
-            bool predictionPossible = _predictionService.IsPredictionPossible(images);
+            bool predictionPossible = _predictionService.IsPredictionAboveMinConfidences(images);
 
             Assert.False(predictionPossible);
         }
@@ -40,7 +40,7 @@ namespace BrickMoverSystem.PredictionService.Tests
             List<IImage> images = GetTestImages(6).ToList();
             images.First().Prediction = GetTestPrediction(0.7, 0.8);
 
-            bool isValidBrick = _predictionService.IsPredictionPossible(images);
+            bool isValidBrick = _predictionService.IsPredictionAboveMinConfidences(images);
 
             Assert.False(isValidBrick);
         }
@@ -48,20 +48,20 @@ namespace BrickMoverSystem.PredictionService.Tests
         [Fact]
         public void CalculateBrickPrediction()
         {
-            var imagePrediction = new List<IPrediction>();
-            imagePrediction.Add(new Prediction(1, 0.8, "badPartPrediction", 0.2));
-            imagePrediction.Add(new Prediction(99, 0.7, "badPartPrediction", 0.2));
-            imagePrediction.Add(new Prediction(99, 0.6, "badPartPrediction", 0.2));
-            imagePrediction.Add(new Prediction(2, 0.6, "goodPartPrediction", 0.82));
-            imagePrediction.Add(new Prediction(2, 0.76, "goodPartPrediction", 0.7));
-            imagePrediction.Add(new Prediction(2, 0.1, "bestPartPrediction", 0.9));
+            List<IPrediction> imagePrediction = new List<IPrediction>();
+            imagePrediction.Add(new Prediction(new ColorPrediction(1, 0.8), new PartNoPrediction("badPartPrediction", 0.2)));
+            imagePrediction.Add(new Prediction(new ColorPrediction(99, 0.7), new PartNoPrediction("badPartPrediction", 0.2)));
+            imagePrediction.Add(new Prediction(new ColorPrediction(99, 0.6), new PartNoPrediction("badPartPrediction", 0.2)));
+            imagePrediction.Add(new Prediction(new ColorPrediction(2, 0.6), new PartNoPrediction("goodPartPrediction", 0.82)));
+            imagePrediction.Add(new Prediction(new ColorPrediction(2, 0.76), new PartNoPrediction("goodPartPrediction", 0.7)));
+            imagePrediction.Add(new Prediction(new ColorPrediction(2, 0.1), new PartNoPrediction("bestPartPrediction", 0.9)));
             
             IPrediction prediction = _predictionService.CalculateBrickPrediction(imagePrediction);
             
-            Assert.Equal(1, prediction.ColorId);
-            Assert.Equal(0.8, prediction.ColorConfidence);
-            Assert.Equal("goodPartPrediction", prediction.PartNo);
-            Assert.Equal(0.82, prediction.PartNoConfidence);
+            Assert.Equal(1, prediction.Color.Id);
+            Assert.Equal(0.8, prediction.Color.Confidence);
+            Assert.Equal("goodPartPrediction", prediction.Part.No);
+            Assert.Equal(0.82, prediction.Part.Confidence);
         }
 
         private static IEnumerable<IImage> GetTestImages(int imagesCount)
@@ -76,7 +76,7 @@ namespace BrickMoverSystem.PredictionService.Tests
 
         private Prediction GetTestPrediction(double colorConfidence, double partNoConfidence)
         {
-            return new Prediction(1, colorConfidence, "", partNoConfidence);
+            return new Prediction(new ColorPrediction(1, colorConfidence), new PartNoPrediction("", partNoConfidence));
         }
     }
 }

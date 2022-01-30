@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using BrickMoverSystem.Model;
-using BrickMoverSystem.Model.Contract;
+using BrickHandler.Model;
+using BrickHandler.Model.Contract;
 
-namespace BrickMoverSystem.Repository
+namespace BrickHandler.MySqlRepository
 {
     public class BrickMySqlRepository : IBrickRepository
     {

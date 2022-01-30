@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace BrickMoverSystem.Pages
+namespace BrickHandler.Pages
 {
     public class IndexModel : PageModel
     {

@@ -1,18 +1,18 @@
 ﻿using Xunit;
 
-namespace BrickMoverSystem.Model.Tests
+namespace BrickHandler.Model.Tests
 {
     public class PredictionTests {
 
         [Fact]
         public void CreatePrediction()
         {
-            Prediction prediction = new Prediction(1, 0.6,"partNo",0.8);
+            Prediction prediction = new Prediction(new ColorPrediction(1, 0.6),new PartNoPrediction("partNo",0.8));
 
-            Assert.Equal(1, prediction.ColorId);
-            Assert.Equal(0.6, prediction.ColorConfidence);
-            Assert.Equal("partNo", prediction.PartNo);
-            Assert.Equal(0.8, prediction.PartNoConfidence);
+            Assert.Equal(1, prediction.Color.Id);
+            Assert.Equal(0.6, prediction.Color.Confidence);
+            Assert.Equal("partNo", prediction.Part.No);
+            Assert.Equal(0.8, prediction.Part.Confidence);
         }
 
     }

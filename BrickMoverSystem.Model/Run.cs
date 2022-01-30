@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BrickMoverSystem.Model
+﻿namespace BrickHandler.Model
 {
     public class Run : IRun
     {

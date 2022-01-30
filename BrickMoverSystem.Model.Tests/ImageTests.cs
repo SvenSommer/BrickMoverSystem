@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace BrickMoverSystem.Model.Tests
+namespace BrickHandler.Model.Tests
 {
     public class ImageTests
     {
@@ -18,18 +18,18 @@ namespace BrickMoverSystem.Model.Tests
         [Fact]
         public void SetPrediction()
         {
-            Image image = GetTestImage(2, "3020a", 0.6, 0.8);
+            Image image = GetTestImage(2, "3020a",0.6, 0.8);
 
-            Assert.Equal(2, image.Prediction.ColorId);
-            Assert.Equal(0.6,image.Prediction.ColorConfidence);
-            Assert.Equal("3020a", image.Prediction.PartNo);
-            Assert.Equal(0.8, image.Prediction.PartNoConfidence);
+            Assert.Equal(2, image.Prediction.Color.Id);
+            Assert.Equal(0.6,image.Prediction.Color.Confidence);
+            Assert.Equal("3020a", image.Prediction.Part.No);
+            Assert.Equal(0.8, image.Prediction.Part.Confidence);
         }
 
         private Image GetTestImage(int colorId, string partNo, double colorConfidence, double partConfidence)
         {
             Image image = new Image(1, "", CameraPosition.BottomCenter, Camera.Brio);
-            image.SetImagePrediction(new Prediction(colorId, colorConfidence, partNo, partConfidence));
+            image.SetImagePrediction(new Prediction(new ColorPrediction(colorId, colorConfidence), new PartNoPrediction(partNo, partConfidence)));
             return image;
         }
 

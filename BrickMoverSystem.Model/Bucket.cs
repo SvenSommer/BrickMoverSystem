@@ -1,4 +1,4 @@
-﻿namespace BrickMoverSystem.Model
+﻿namespace BrickHandler.Model
 {
     public class Bucket : IBucket
     {

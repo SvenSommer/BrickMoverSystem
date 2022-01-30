@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BrickMoverSystem.Model.Contract;
+using BrickHandler.Model.Contract;
 
-namespace BrickMoverSystem.Model
+namespace BrickHandler.Model
 {
     public class BrickMoverService
     {
@@ -28,7 +26,7 @@ namespace BrickMoverSystem.Model
         {
             await GetAndSaveImagePredictions(brick);
 
-            if (_predictionService.IsPredictionPossible(brick.Images)) 
+            if (_predictionService.IsPredictionAboveMinConfidences(brick.Images)) 
                 CalculateAndSetBrickPrediction(brick);
 
             IBucket bucket = _bucketService.GetBucketForBrick(brick);
@@ -51,7 +49,7 @@ namespace BrickMoverSystem.Model
             foreach (IImage image in brick.Images)
             {
                 IPrediction prediction = await _predictionService.GetPrediction(image);
-                if (prediction.isValid())
+                if (prediction.IsValid())
                     image.SetImagePrediction(prediction);
             }
         }

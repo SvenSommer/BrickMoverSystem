@@ -1,4 +1,4 @@
-﻿namespace BrickMoverSystem.Model.Contract
+﻿namespace BrickHandler.Model.Contract
 {
     public interface IBucketService
     {

@@ -1,4 +1,4 @@
-﻿namespace RabbitMQAdapter.Messages
+﻿namespace BrickHandler.Messages.Messages
 {
     public interface IMessage
     {

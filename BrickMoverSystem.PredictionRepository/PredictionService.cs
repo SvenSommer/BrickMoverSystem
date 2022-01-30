@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BrickMoverSystem.Model;
-using BrickMoverSystem.Model.Contract;
+using BrickHandler.Model;
+using BrickHandler.Model.Contract;
 
-namespace BrickMoverSystem.PredictionService
+namespace BrickHandler.PredictionService
 {
     public class PredictionService : IPredictionService
     {
@@ -29,23 +29,32 @@ namespace BrickMoverSystem.PredictionService
         {
             List<IPrediction> predictionList = imagePredictions.ToList();
 
-            // Get colorId with the highest rating
-            double maxColorConfidence = predictionList.Max(s => s.ColorConfidence);
-            IPrediction predictedColor = predictionList.First(x => x.ColorConfidence == maxColorConfidence);
+            IColorPrediction predictedColor = GetColorIdWithHighestRating(predictionList);
+            IPartNoPrediction predictedPartno = GetMaxRepeatedPartnumberFromValidPredictions(predictionList);
 
-            //Get the max repeated partnumber from the valid predictions
-            List<IPrediction> validPartNoPredictions = predictionList.Where(s => s.PartNoConfidence > _minPartNoConfidence).ToList();
+            return new Prediction(predictedColor, predictedPartno);
+        }
+
+        private static IPartNoPrediction GetMaxRepeatedPartnumberFromValidPredictions(IList<IPrediction> predictionList)
+        {
+           List<IPrediction> validPartNoPredictions =
+                predictionList.Where(s => s.Part.Confidence > _minPartNoConfidence).ToList();
             IPrediction predictedPartno = validPartNoPredictions.GroupBy(x => x)
                 .OrderByDescending(x => x.Count())
                 .First().Key;
-
-            return new Prediction(predictedColor.ColorId, predictedColor.ColorConfidence, predictedPartno.PartNo,
-                predictedPartno.PartNoConfidence);
+            return predictedPartno.Part;
         }
 
-        public bool IsPredictionPossible(IEnumerable<IImage> images)
+        private static IColorPrediction GetColorIdWithHighestRating(IList<IPrediction> predictions)
         {
-           return images.Any(image => image.Prediction != null && image.Prediction.PartNoConfidence >= _minPartNoConfidence && image.Prediction.ColorConfidence >= _minColorConfidence);
+            double maxColorConfidence = predictions.Max(s => s.Color.Confidence);
+            IColorPrediction predictedColor = predictions.First(x => x.Color.Confidence.Equals(maxColorConfidence)).Color;
+            return predictedColor;
+        }
+
+        public bool IsPredictionAboveMinConfidences(IEnumerable<IImage> images)
+        {
+           return images.Any(image => image.Prediction != null && image.Prediction.Part.Confidence >= _minPartNoConfidence && image.Prediction.Color.Confidence >= _minColorConfidence);
         }
 
         

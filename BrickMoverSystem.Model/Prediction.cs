@@ -1,32 +1,27 @@
-﻿namespace BrickMoverSystem.Model
+﻿namespace BrickHandler.Model
 {
     public class Prediction : IPrediction
     {
-        public Prediction(int colorId, double colorConfidence, string partNo, double partNoConfidence)
+        public Prediction(IColorPrediction colorPrediction, IPartNoPrediction partNoPrediction)
         {
-            ColorId = colorId;
-            ColorConfidence = colorConfidence;
-            PartNo = partNo;
-            PartNoConfidence = partNoConfidence;
+            Color = colorPrediction;
+            Part = partNoPrediction;
         }
 
-        public int ColorId { get; set; }
-        public double ColorConfidence { get; set; }
-        public string PartNo { get; set; }
-        public double PartNoConfidence { get; set; }
-        public bool isValid()
+        public IColorPrediction Color { get; set; }
+        public IPartNoPrediction Part { get; set; }
+
+        public bool IsValid()
         {
-            return ColorId > 0 && !string.IsNullOrEmpty(PartNo);
+            return Color.Id > 0 && !string.IsNullOrEmpty(Part.No);
         }
     }
 
 
     public interface IPrediction
     {
-        public int ColorId { get; set; }
-        public double ColorConfidence { get; set; }
-        public string PartNo { get; set; }
-        public double PartNoConfidence { get; set; }
-        bool isValid();
+        public IColorPrediction Color { get; set; }
+        public IPartNoPrediction Part { get; set; }
+        bool IsValid();
     }
 }
