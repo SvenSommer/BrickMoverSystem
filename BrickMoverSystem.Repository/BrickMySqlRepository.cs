@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using BrickHandler.Model;
 using BrickHandler.Model.Contract;
 
@@ -16,7 +17,7 @@ namespace BrickHandler.MySqlRepository
             connection.DatabaseName = "LegoSorterDB";
         }
 
-        public void Save(IBrick brick)
+        public async Task SaveAsync(IBrick brick)
         {
             throw new NotImplementedException();
         }

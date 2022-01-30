@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BrickHandler.RabbitMQAdapter\BrickHandler.RabbitMQAdapter.csproj" />
     <ProjectReference Include="..\BrickMoverSystem.Model\BrickHandler.Model.csproj" />
   </ItemGroup>
 

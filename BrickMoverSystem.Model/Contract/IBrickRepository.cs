@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Threading.Tasks;
 
 namespace BrickHandler.Model.Contract
 {
     public interface IBrickRepository
     {
-        void Save(IBrick brick);
-        IEnumerable<IBrick> BricksByBucket(int bucketNumber);
+        Task SaveAsync(IBrick brick);
 
-        void SavePushResult(IPushResult pushResult);
     }
 }

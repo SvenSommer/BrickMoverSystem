@@ -6,11 +6,8 @@ namespace BrickHandler.BucketService
 {
     public class BucketService : IBucketService
     {
-        public IBucket GetBucketForBrick(IBrick brick)
+        public IBucket GetBucketForBrick(string partno, int colorid)
         {
-            //TODO: Request the bucket the brick needs to pushed
-            string partno = brick.Prediction.Part.No;
-            int colorId = brick.Prediction.Color.Id;
             throw new NotImplementedException();
         }
 

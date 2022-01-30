@@ -1,4 +1,3 @@
-using System;
 using System.Text;
 using BrickHandler.RabbitMQAdapter.Extensions;
 using Xunit;

@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
 using System.Reflection;
-using System.Text;
 using BrickHandler.Messages.Messages;
 using BrickHandler.RabbitMQAdapter.Exceptions;
 using BrickHandler.RabbitMQAdapter.MessageHandling;
 using BrickHandler.RabbitMQAdapter.ReflectUtils;
 using Newtonsoft.Json;
-using Polly;
-using Polly.Retry;
-using RabbitMQ.Client.Exceptions;
 
 namespace BrickHandler.RabbitMQAdapter
 {
@@ -88,5 +83,13 @@ namespace BrickHandler.RabbitMQAdapter
             _rabbitMqAdapter.BasicPublish(@event);
         }
 
+    }
+
+    public interface IMessageBusEndpoint
+    {
+        void Start();
+        void HandleMessage(MessageReceivedEventArgs args);
+        void Send(ICommand command, string destination);
+        void Publish(IEvent @event);
     }
 }
