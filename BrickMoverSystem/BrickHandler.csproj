@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BrickMoverSystem.AppService\BrickMoverSystem.AppService.csproj" />
+    <ProjectReference Include="..\BrickMoverSystem.AppService\BrickHandler.AppService.csproj" />
   </ItemGroup>
 
 </Project>

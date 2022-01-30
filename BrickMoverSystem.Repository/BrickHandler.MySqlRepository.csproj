@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BrickMoverSystem.Model\BrickMoverSystem.Model.csproj" />
+    <ProjectReference Include="..\BrickMoverSystem.Model\BrickHandler.Model.csproj" />
   </ItemGroup>
 
 </Project>
