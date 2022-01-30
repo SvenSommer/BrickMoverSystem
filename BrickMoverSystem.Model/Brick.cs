@@ -1,18 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace BrickMoverSystem.Model
 {
     public class Brick : IBrick
     {
-        public Brick(int id, IEnumerable<IImage> images, double speed, double lastPosition)
+        public Brick(int id, IEnumerable<IImage> images, IEnumerable<ITimeAndPosition> sightings, double lastPosition)
         {
             Id = id;
             Images = images;
-            Speed = speed;
-            LastPosition = lastPosition;
+            Sightings = sightings;
         }
 
-        public void SetPrediction(IPrediction prediction)
+        public void SetBrickPrediction(IPrediction prediction)
         {
             Prediction = prediction;
         }
@@ -21,17 +22,25 @@ namespace BrickMoverSystem.Model
         public int Id { get; set; }
         public IEnumerable<IImage> Images { get; set; }
         public double Speed { get; set; }
-        public double LastPosition { get; set; }
+        public IEnumerable<ITimeAndPosition> Sightings { get; set; }
         public IPrediction Prediction { get; set; }
     }
+
+    public interface ITimeAndPosition
+    {
+        public DateTime DateTime { get; set; }
+        public Point Position { get; set; }
+
+    }
+
 
     public interface IBrick
     {
         int Id { get; set; }
         IEnumerable<IImage> Images { get; set; }
         double Speed { get;  set; }
-        double LastPosition { get; set; }
+        IEnumerable<ITimeAndPosition> Sightings { get; set; }
         public IPrediction Prediction { get; }
-        void SetPrediction(IPrediction prediction);
+        void SetBrickPrediction(IPrediction prediction);
     }
 }

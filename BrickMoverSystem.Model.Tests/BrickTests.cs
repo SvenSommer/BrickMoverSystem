@@ -26,7 +26,7 @@ namespace BrickMoverSystem.Model.Tests
             Brick brick = GetTestBrick(6);
             brick.Images.First().Prediction = GetTestPrediction(0.9, 0.9);
 
-            brick.SetPrediction(new Prediction(1, 0.9, "Partno", 0.8));
+            brick.SetBrickPrediction(new Prediction(1, 0.9, "Partno", 0.8));
             
             Assert.Equal(1, (int)brick.Prediction.ColorId);
             Assert.Equal("Partno", (string)brick.Prediction.PartNo);
@@ -45,7 +45,7 @@ namespace BrickMoverSystem.Model.Tests
             List<Image> images = new List<Image>();
             for (int i = 0; i < imagesCount; i++)
             {
-                images.Add(new Image(i, "", Position.BottomCenter, Camera.Brio));
+                images.Add(new Image(i, "", CameraPosition.BottomCenter, Camera.Brio));
             }
             return images;
         }

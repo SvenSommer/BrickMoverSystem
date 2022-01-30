@@ -3,6 +3,6 @@
     public interface IBucketService
     {
         IBucket GetBucketForBrick(IBrick brick);
-        void Push(IBucket bucket, IBrick brick, double pushTime);
+        void Push(int bucketId, IBrick brick, double pushTime);
     }
 }

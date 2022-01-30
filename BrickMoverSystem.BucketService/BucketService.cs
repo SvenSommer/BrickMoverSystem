@@ -14,7 +14,7 @@ namespace BrickMoverSystem.BucketService
             throw new NotImplementedException();
         }
 
-        public void Push(IBucket bucket, IBrick brick, double pushTime)
+        public void Push(int bucketId, IBrick brick, double pushTime)
         {
             //TODO: Send command to ValveController to push the brick into the bucket at the given time
             throw new NotImplementedException();

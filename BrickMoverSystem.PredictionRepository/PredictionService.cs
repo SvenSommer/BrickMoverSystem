@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BrickMoverSystem.Model;
 using BrickMoverSystem.Model.Contract;
 
@@ -18,7 +19,7 @@ namespace BrickMoverSystem.PredictionService
             _minColorConfidence = minColorConfidence;
         }
 
-        public IPrediction GetPrediction(IImage image)
+        public Task<IPrediction> GetPrediction(IImage image)
         {
             //TODO: Load the pretrained Model do get a prediction for colorId and partNo
             throw new NotImplementedException();

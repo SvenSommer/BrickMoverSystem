@@ -26,7 +26,7 @@ namespace BrickMoverSystem.Repository
             throw new NotImplementedException();
         }
 
-        public void SavePushResult(IPushResultMessage pushResultMessage)
+        public void SavePushResult(IPushResult pushResult)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
-﻿using BrickMoverSystem.Model;
+﻿using System.Threading.Tasks;
+using BrickMoverSystem.Model;
 
 namespace BrickMoverSystem.AppService
 {
@@ -11,14 +12,14 @@ namespace BrickMoverSystem.AppService
             _brickMoverService = brickMoverService;
         }
 
-        public void PredictAndPush(IBrick brick)
+        public async Task PredictAndPush(IBrick brick, IRun run)
         {
-            _brickMoverService.PredictAndPush(brick);
+            await _brickMoverService.PredictAndPush(brick);
         }
 
-        public void Evaluate(IPushResultMessage pushResultMessage)
+        public void Evaluate(IPushResult pushResult)
         {
-            _brickMoverService.SavePushResult(pushResultMessage);
+            _brickMoverService.SavePushResult(pushResult);
         }
     }
 }

@@ -69,7 +69,7 @@ namespace BrickMoverSystem.PredictionService.Tests
             List<Image> images = new List<Image>();
             for (int i = 0; i < imagesCount; i++)
             {
-                images.Add(new Image(i, "", Position.BottomCenter, Camera.Brio));
+                images.Add(new Image(i, "", CameraPosition.BottomCenter, Camera.Brio));
             }
             return images;
         }

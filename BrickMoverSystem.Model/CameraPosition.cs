@@ -1,6 +1,6 @@
 ﻿namespace BrickMoverSystem.Model
 {
-    public enum Position
+    public enum CameraPosition
     {
         TopCenter,
         TopRight,

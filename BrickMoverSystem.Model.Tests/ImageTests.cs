@@ -7,11 +7,11 @@ namespace BrickMoverSystem.Model.Tests
         [Fact]
         public void CreateImage()
         {
-            Image image = new Image(1, $"//192.186.110.1/pathToImage.png", Position.BottomCenter, Camera.Brio);
+            Image image = new Image(1, $"//192.186.110.1/pathToImage.png", CameraPosition.BottomCenter, Camera.Brio);
 
             Assert.Equal(1, image.Id);
             Assert.Equal("//192.186.110.1/pathToImage.png", image.ImagePath);
-            Assert.Equal(Position.BottomCenter, image.Position);
+            Assert.Equal(CameraPosition.BottomCenter, image.CameraPosition);
             Assert.Equal(Camera.Brio, image.Camera);
         }
 
@@ -28,8 +28,8 @@ namespace BrickMoverSystem.Model.Tests
 
         private Image GetTestImage(int colorId, string partNo, double colorConfidence, double partConfidence)
         {
-            Image image = new Image(1, "", Position.BottomCenter, Camera.Brio);
-            image.SetPrediction(new Prediction(colorId, colorConfidence, partNo, partConfidence));
+            Image image = new Image(1, "", CameraPosition.BottomCenter, Camera.Brio);
+            image.SetImagePrediction(new Prediction(colorId, colorConfidence, partNo, partConfidence));
             return image;
         }
 

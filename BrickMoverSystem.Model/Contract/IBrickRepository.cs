@@ -7,6 +7,6 @@ namespace BrickMoverSystem.Model.Contract
         void Save(IBrick brick);
         IEnumerable<IBrick> BricksByBucket(int bucketNumber);
 
-        void SavePushResult(IPushResultMessage pushResultMessage);
+        void SavePushResult(IPushResult pushResult);
     }
 }
