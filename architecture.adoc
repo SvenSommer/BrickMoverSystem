@@ -1,7 +1,0 @@
-# Architecture
-
-== Beispielhafte Implementierung für Primärsysteme
-[source,c++]
-----
-include::resources/ping_Subscription.cpp[]
-----
